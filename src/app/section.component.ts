@@ -1,13 +1,17 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {ContentContainer} from "./ContentContainer";
+import {ContentContainer} from "./content.container";
 
 @Component({
   selector: 'section',
   template: `    
-  <h2>{{context?.label}}</h2>
-  <div class="indent" *ngFor="let element of elements">
-    <group [context]="element"></group>
-  </div>
+    <div class="panel panel-info">
+      <div class="panel-heading" *ngIf="context.label">
+        <h2 class="panel-title">{{context.label}}</h2>
+      </div>
+      <div class="panel-body" *ngFor="let element of elements">
+        <group [context]="element"></group>
+      </div>
+    </div>
 `
 })
 export class SectionComponent extends ContentContainer {

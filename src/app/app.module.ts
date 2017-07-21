@@ -17,6 +17,7 @@ import {SectionsComponent} from "./sections.component";
 import {SectionComponent} from "./section.component";
 import {GroupComponent} from "./group.component";
 import {ElementComponent} from "./element.component";
+import {ElementService} from "./element.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {ElementComponent} from "./element.component";
     HttpModule
   ],
   providers: [
-    DataService
+    DataService,
+    ElementService
   ],
   entryComponents: [
     DynamicSample1Component,

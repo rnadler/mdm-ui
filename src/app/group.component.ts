@@ -1,13 +1,17 @@
 import {Component, Input } from "@angular/core";
-import {ContentContainer} from "./ContentContainer";
+import {ContentContainer} from "./content.container";
 
 @Component({
   selector: 'group',
-  template: `    
-  <h3><label>{{context?.label}}</label></h3>
-  <div class="indent" *ngFor="let element of elements">
-    <element [context]="element"></element>
-  </div>
+  template: `
+    <div class="panel panel-default">
+      <div class="panel-heading" *ngIf="context.label">
+        <h3 class="panel-title">{{context.label}}</h3>
+      </div>
+    <div class="indent" *ngFor="let element of elements">
+      <element [context]="element"></element>
+    </div>
+    </div>
  `
 })
 export class GroupComponent extends ContentContainer {

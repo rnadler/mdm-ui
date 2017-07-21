@@ -1,6 +1,6 @@
 import {Component, Input} from "@angular/core";
 import {DataService} from "./data.service";
-import {ContentContainer} from "./ContentContainer";
+import {ContentContainer} from "./content.container";
 
 @Component({
   selector: 'sections',
@@ -8,7 +8,7 @@ import {ContentContainer} from "./ContentContainer";
   <div class="center">
     <h1>{{title}}</h1>
   </div>
-  <div class="indent" *ngFor="let element of elements">
+  <div *ngFor="let element of elements">
     <section [context]="element"></section>
   </div>
 `
