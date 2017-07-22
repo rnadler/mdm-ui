@@ -13,7 +13,7 @@ export class ElementService {
     this.addElement(this.DEFAULT, component);
   }
 
-  getElement(name: string) {
+  getComponent(name: string) {
     let type = ElementService.elementsMap[name];
     return type || ElementService.elementsMap[ElementService.DEFAULT];
   }

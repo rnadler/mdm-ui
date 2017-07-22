@@ -13,7 +13,7 @@ import {ContentContainer} from "./content.container";
   </div>
 `
 })
-export class SectionsComponent  extends ContentContainer {
+export class SectionsComponent extends ContentContainer {
   private title: string;
 
   constructor(private dataService: DataService) {

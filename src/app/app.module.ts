@@ -9,8 +9,7 @@ import { DataService} from "./data.service"
 import {
   DynamicContentComponent,
   DynamicSample1Component,
-  DynamicSample2Component,
-  UnknownDynamicComponent
+  DynamicSample2Component
 } from './dynamic-content.component';
 import { DynamicContentComponentDemo } from './dynamic-content.component.demo';
 import {SectionsComponent} from "./sections.component";
@@ -18,6 +17,8 @@ import {SectionComponent} from "./section.component";
 import {GroupComponent} from "./group.component";
 import {ElementComponent} from "./element.component";
 import {ElementService} from "./element.service";
+import {TextElementComponent} from "./elements/text.element.component";
+import {DefaultElementComponent} from "./elements/default.element.component";
 
 @NgModule({
   declarations: [
@@ -25,12 +26,13 @@ import {ElementService} from "./element.service";
     DynamicContentComponent,
     DynamicSample1Component,
     DynamicSample2Component,
-    UnknownDynamicComponent,
     DynamicContentComponentDemo,
     SectionsComponent,
     SectionComponent,
     GroupComponent,
-    ElementComponent
+    ElementComponent,
+    TextElementComponent,
+    DefaultElementComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +46,12 @@ import {ElementService} from "./element.service";
   entryComponents: [
     DynamicSample1Component,
     DynamicSample2Component,
-    UnknownDynamicComponent,
     SectionsComponent,
     SectionComponent,
     GroupComponent,
-    ElementComponent
+    ElementComponent,
+    TextElementComponent,
+    DefaultElementComponent
   ],
   bootstrap: [AppComponent]
 })

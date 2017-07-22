@@ -4,6 +4,7 @@ import {
   ComponentFactoryResolver, ComponentRef
 } from '@angular/core';
 import {ElementService} from "./element.service";
+import {DynamicComponent} from "./dynamic.component";
 
 @Component({
   selector: 'dynamic-content',
@@ -17,13 +18,8 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
 
   @ViewChild('container', { read: ViewContainerRef })
   container: ViewContainerRef;
-
-  @Input()
-  type: string;
-
-  @Input()
-  context: any;
-
+  @Input() type: string;
+  @Input() context: any;
   private componentRef: ComponentRef<{}>;
 
   constructor(
@@ -32,7 +28,7 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.type) {
-      let componentType = this.elementService.getElement(this.type);
+      let componentType = this.elementService.getComponent(this.type);
 
       // note: componentType must be declared within module.entryComponents
       let factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
@@ -53,10 +49,6 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
 
 }
 
-export abstract class DynamicComponent {
-  context: any;
-}
-
 @Component({
   selector: 'dynamic-sample-1',
   template: `<div>Dynamic sample 1 ({{context?.text}})</div>`
@@ -70,10 +62,3 @@ ElementService.addElement('sample1', DynamicSample1Component);
 })
 export class DynamicSample2Component extends DynamicComponent {}
 ElementService.addElement('sample2', DynamicSample2Component);
-
-@Component({
-  selector: 'unknown-component',
-  template: `<div>Unknown component ({{context?.text}})</div>`
-})
-export class UnknownDynamicComponent extends DynamicComponent {}
-ElementService.addDefaultElement(UnknownDynamicComponent);

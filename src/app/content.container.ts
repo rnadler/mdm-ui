@@ -8,10 +8,15 @@ export class ContentContainer implements OnInit {
   }
 
   ngOnInit(): void {
+    if (typeof this.context === 'string' || this.context instanceof String) {
+      return;
+    }
     this.elements = [];
     let elements = this.elementName === null ? this.context : this.context[this.elementName];
     for (let el in elements) {
-      this.elements.push(elements[el]);
+      let element = elements[el];
+      console.log(this.elementName + ' ' + el + ' ' + element.label);
+      this.elements.push(element);
     }
   }
   setContext(data: any) {
