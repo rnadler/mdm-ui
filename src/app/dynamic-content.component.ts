@@ -20,15 +20,16 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
   container: ViewContainerRef;
   @Input() type: string;
   @Input() context: any;
+  @Input() path: string;
   private componentRef: ComponentRef<{}>;
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver, private elementService: ElementService) {
+    private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
     if (this.type) {
-      let componentType = this.elementService.getComponent(this.type);
+      let componentType = ElementService.getComponent(this.type);
 
       // note: componentType must be declared within module.entryComponents
       let factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
@@ -37,6 +38,7 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
       // set component context
       let instance = <DynamicComponent> this.componentRef.instance;
       instance.context = this.context;
+      instance.path = this.path;
     }
   }
 
@@ -48,17 +50,3 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
   }
 
 }
-
-@Component({
-  selector: 'dynamic-sample-1',
-  template: `<div>Dynamic sample 1 ({{context?.text}})</div>`
-})
-export class DynamicSample1Component extends DynamicComponent {}
-ElementService.addElement('sample1', DynamicSample1Component);
-
-@Component({
-  selector: 'dynamic-sample-2',
-  template: `<div>Dynamic sample 2 ({{context?.text}})</div>`
-})
-export class DynamicSample2Component extends DynamicComponent {}
-ElementService.addElement('sample2', DynamicSample2Component);

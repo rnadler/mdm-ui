@@ -1,10 +1,7 @@
 
-import {Injectable} from "@angular/core";
-
-@Injectable()
 export class ElementService {
   private static elementsMap = {};
-  private static DEFAULT: string = 'default';
+  static DEFAULT: string = 'default';
 
   static addElement(name: string, component: any) {
     this.elementsMap[name] = component;
@@ -13,7 +10,7 @@ export class ElementService {
     this.addElement(this.DEFAULT, component);
   }
 
-  getComponent(name: string) {
+  static getComponent(name: string) {
     let type = ElementService.elementsMap[name];
     return type || ElementService.elementsMap[ElementService.DEFAULT];
   }

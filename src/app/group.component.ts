@@ -1,4 +1,4 @@
-import {Component, Input } from "@angular/core";
+import {Component } from "@angular/core";
 import {ContentContainer} from "./content.container";
 
 @Component({
@@ -9,7 +9,7 @@ import {ContentContainer} from "./content.container";
         <h3 class="panel-title">{{context.label}}</h3>
       </div>
     <div class="indent" *ngFor="let element of elements">
-      <element [context]="element"></element>
+      <element [context]="element.context" [path]="element.path"></element>
     </div>
     </div>
  `

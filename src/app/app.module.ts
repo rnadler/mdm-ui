@@ -8,10 +8,7 @@ import { DataService} from "./data.service"
 
 import {
   DynamicContentComponent,
-  DynamicSample1Component,
-  DynamicSample2Component
 } from './dynamic-content.component';
-import { DynamicContentComponentDemo } from './dynamic-content.component.demo';
 import {SectionsComponent} from "./sections.component";
 import {SectionComponent} from "./section.component";
 import {GroupComponent} from "./group.component";
@@ -24,9 +21,6 @@ import {DefaultElementComponent} from "./elements/default.element.component";
   declarations: [
     AppComponent,
     DynamicContentComponent,
-    DynamicSample1Component,
-    DynamicSample2Component,
-    DynamicContentComponentDemo,
     SectionsComponent,
     SectionComponent,
     GroupComponent,
@@ -44,8 +38,6 @@ import {DefaultElementComponent} from "./elements/default.element.component";
     ElementService
   ],
   entryComponents: [
-    DynamicSample1Component,
-    DynamicSample2Component,
     SectionsComponent,
     SectionComponent,
     GroupComponent,

@@ -9,12 +9,12 @@ import {ContentContainer} from "./content.container";
     <h1>{{title}}</h1>
   </div>
   <div *ngFor="let element of elements">
-    <section [context]="element"></section>
+    <section [context]="element.context" [path]="element.path"></section>
   </div>
 `
 })
 export class SectionsComponent extends ContentContainer {
-  private title: string;
+  title: string;
 
   constructor(private dataService: DataService) {
     super(null);
