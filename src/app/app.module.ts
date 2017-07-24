@@ -16,6 +16,8 @@ import {ElementComponent} from "./element.component";
 import {ElementService} from "./element.service";
 import {TextElementComponent} from "./elements/text.element.component";
 import {DefaultElementComponent} from "./elements/default.element.component";
+import {SelectElementComponent} from "./elements/select.element.component";
+import {BooleanElementComponent} from "./elements/boolean.element.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {DefaultElementComponent} from "./elements/default.element.component";
     GroupComponent,
     ElementComponent,
     TextElementComponent,
+    SelectElementComponent,
+    BooleanElementComponent,
     DefaultElementComponent
   ],
   imports: [
@@ -43,6 +47,8 @@ import {DefaultElementComponent} from "./elements/default.element.component";
     GroupComponent,
     ElementComponent,
     TextElementComponent,
+    SelectElementComponent,
+    BooleanElementComponent,
     DefaultElementComponent
   ],
   bootstrap: [AppComponent]
